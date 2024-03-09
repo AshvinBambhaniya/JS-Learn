@@ -1,6 +1,6 @@
 // Hoist
 function print() {
-    var square1 = number * number
+    var square1 = number * number // number is undefined
     console.log(square1)
 
     var number = 50
