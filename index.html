@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/faviconp.jpg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/faviconp.jpg" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <title>Stylish News</title>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+
+  <nav class="navbar bg-dark navbar-dark navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand" href="#">Netflix</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#titleform">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#movies">Movies</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <section id="titleform" class="container my-5">
+    <form action="/submit" method="post" class="row g-3">
+
+      <div class="form-group col-md-6">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Enter title" required>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="description">Description</label>
+        <input type="text" class="form-control" id="title" name="description" placeholder="Enter description" required>
+      </div>
+
+      <div class="form-group col-md-2">
+        <label for="type">Type</label>
+        <select class="form-control" id="type" name="type" required>
+          <option value="">Select type</option>
+          <option value="MOVIE">Movie</option>
+          <option value="SHOW">Show</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-2">
+        <label for="releaseYear">Release Year</label>
+        <input type="number" class="form-control" id="releaseYear" name="releaseYear" placeholder="Enter release year"
+          required>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="ageCertification">Age Certification</label>
+        <select class="form-control" id="ageCertification" name="ageCertification" required>
+          <option value="">Select age certification</option>
+          <option value="G">G</option>
+          <option value="PG">PG</option>
+          <option value="PG-13">PG-13</option>
+          <option value="R">R</option>
+          <option value="NC-17">NC-17</option>
+          <option value="Not Rated">Not Rated</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-2">
+        <label for="runtime">Runtime</label>
+        <input type="number" class="form-control" id="runtime" name="runtime" placeholder="Enter runtime" required>
+      </div>
+
+      <!-- Seasons -->
+      <div class="form-group col-md-2">
+        <label for="seasons">Seasons</label>
+        <input type="number" class="form-control" id="seasons" name="seasons" placeholder="Enter seasons">
+      </div>
+
+      <!-- <div class="form-group col-md-12">
+        <label>Genres</label>
+        <div class="row">
+          <div class="form-check col">
+            <input class="form-check-input" type="checkbox" id="action" name="genres[]" value="action">
+            <label class="form-check-label" for="action">Action</label>
+          </div>
+          <div class="form-check col">
+            <input class="form-check-input" type="checkbox" id="adventure" name="genres[]" value="adventure">
+            <label class="form-check-label" for="adventure">Adventure</label>
+          </div>
+          <div class="form-check col">
+            <input class="form-check-input" type="checkbox" id="comedy" name="genres[]" value="comedy">
+            <label class="form-check-label" for="comedy">Comedy</label>
+          </div>
+          <div class="form-check col">
+            <input class="form-check-input" type="checkbox" id="drama" name="genres[]" value="drama">
+            <label class="form-check-label" for="drama">Drama</label>
+          </div>
+          <div class="form-check col">
+            <input class="form-check-input" type="checkbox" id="fantasy" name="genres[]" value="fantasy">
+            <label class="form-check-label" for="fantasy">Fantasy</label>
+          </div>
+          <div class="form-check col">
+            <input class="form-check-input" type="checkbox" id="horror" name="genres[]" value="horror">
+            <label class="form-check-label" for="horror">Horror</label>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="form-group col-md-4">
+        <label for="productionCountry">Production Country</label>
+        <input type="text" class="form-control" id="productionCountry" name="productionCountry"
+          placeholder="Enter Country" required>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="imdbID">IMDB ID</label>
+        <input type="text" class="form-control" id="imdbID" name="imdbID" placeholder="Enter IMDB ID" required>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="imdbScore">IMDB Score</label>
+        <input type="number" class="form-control" id="imdbScore" name="imdbScore" placeholder="Enter IMDB score"
+          required>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="imdbVotes">IMDB Votes</label>
+        <input type="number" class="form-control" id="imdbVotes" name="imdbVotes" placeholder="Enter IMDB votes"
+          required>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="tmdbPopularity">TMDB Popularity</label>
+        <input type="number" class="form-control" id="tmdbPopularity" name="tmdbPopularity"
+          placeholder="Enter TMDB popularity" required>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="tmdbScore">TMDB Score</label>
+        <input type="number" class="form-control" id="tmdbScore" name="tmdbScore" placeholder="Enter TMDB score"
+          required>
+      </div>
+
+      <div class="form-group col-md-4">
+        <button type="submit col-md-2" class="btn btn-primary">Submit</button>
+      </div>
+
+    </form>
+  </section>
+
+  <div class="container text-center mt-2">
+    <h3>Movies List</h3>
+  </div>
+  <section id="movies" class="container text-center my-3">
+    <div class="row">
+      <div class="col-md-4 my-3">
+        <div class="card">
+          <!-- <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg" class="card-img-top"
+            alt="..."> -->
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#titledetails" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 my-3">
+        <div class="card">
+          <!-- <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg" class="card-img-top"
+            alt="..."> -->
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#titledetails" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 my-3">
+        <div class="card">
+          <!-- <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg" class="card-img-top"
+            alt="..."> -->
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#titledetails" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 my-3">
+        <div class="card">
+          <!-- <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg" class="card-img-top"
+            alt="..."> -->
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#titledetails" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 my-3">
+        <div class="card">
+          <!-- <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg" class="card-img-top"
+            alt="..."> -->
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#titledetails" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 my-3">
+        <div class="card">
+          <!-- <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg" class="card-img-top"
+            alt="..."> -->
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#titledetails" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 my-3">
+        <div class="card">
+          <!-- <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg" class="card-img-top"
+            alt="..."> -->
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#titledetails" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 my-3">
+        <div class="card">
+          <!-- <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg" class="card-img-top"
+            alt="..."> -->
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#titledetails" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 my-3">
+        <div class="card">
+          <!-- <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg" class="card-img-top"
+            alt="..."> -->
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#titledetails" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section>
+    <div class="container">
+      <h2 class="text-center">All Titles</h2>
+      <div class="container table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Release Year</th>
+              <th>Age Certification</th>
+              <th>Runtime</th>
+              <th>Genres</th>
+              <th>Production Countries</th>
+              <th>Seasons</th>
+              <th>IMDB ID</th>
+              <th>IMDB Score</th>
+              <th>IMDB Votes</th>
+              <th>TMDB Popularity</th>
+              <th>TMDB Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>fealakjfoaihfoihaefoiho</td>
+              <td>kjofioi</td>
+              <td>Movie</td>
+              <td>Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.</td>
+              <td>1994</td>
+              <td>R</td>
+              <td>142</td>
+              <td>Drama</td>
+              <td>USA</td>
+              <td>0</td>
+              <td>tt0111161</td>
+              <td>9.3</td>
+              <td>2469834</td>
+              <td>41.805</td>
+              <td>8.7</td>
+          </tr>
+          <tr>
+              <td>fealakjfoaihfoihaefoiho</td>
+              <td>kjofioi</td>
+              <td>Movie</td>
+              <td>Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.</td>
+              <td>1994</td>
+              <td>R</td>
+              <td>142</td>
+              <td>Drama</td>
+              <td>USA</td>
+              <td>0</td>
+              <td>tt0111161</td>
+              <td>9.3</td>
+              <td>2469834</td>
+              <td>41.805</td>
+              <td>8.7</td>
+          </tr>
+          <tr>
+              <td>fealakjfoaihfoihaefoiho</td>
+              <td>kjofioi</td>
+              <td>Movie</td>
+              <td>Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.</td>
+              <td>1994</td>
+              <td>R</td>
+              <td>142</td>
+              <td>Drama</td>
+              <td>USA</td>
+              <td>0</td>
+              <td>tt0111161</td>
+              <td>9.3</td>
+              <td>2469834</td>
+              <td>41.805</td>
+              <td>8.7</td>
+          </tr>
+          
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </section> -->
+
+  <section id="titledetails" class="container my-5">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <span>Title Information</span>
+        <div>
+          <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Update</button>
+          <button type="button" class="btn btn-sm btn-danger">Delete</button>
+        </div>
+       
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Inception</h5>
+        <p class="card-text"><strong>Type:</strong> Movie</p>
+        <p class="card-text"><strong>Description:</strong> A thief who enters the dreams of others to steal secrets from
+          their subconscious.</p>
+        <p class="card-text"><strong>Release Year:</strong> 2010</p>
+        <p class="card-text"><strong>Age Certification:</strong> PG-13</p>
+        <p class="card-text"><strong>Runtime:</strong> 148 minutes</p>
+        <p class="card-text"><strong>Genres:</strong> Action, Adventure, Sci-Fi</p>
+        <p class="card-text"><strong>Production Countries:</strong> United States, United Kingdom</p>
+        <p class="card-text"><strong>Seasons:</strong> N/A</p>
+        <p class="card-text"><strong>IMDB ID:</strong> tt1375666</p>
+        <p class="card-text"><strong>IMDB Score:</strong> 8.8</p>
+        <p class="card-text"><strong>IMDB Votes:</strong> 2,157,201</p>
+        <p class="card-text"><strong>TMDB Popularity:</strong> 36.123</p>
+        <p class="card-text"><strong>TMDB Score:</strong> 8.3</p>
+      </div>
+    </div>
+
+  </section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/submit" method="post" class="row g-3">
+
+          <div class="form-group col-md-6">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Enter title" required>
+          </div>
+    
+          <div class="form-group col-md-6">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="title" name="description" placeholder="Enter description" required>
+          </div>
+    
+          <div class="form-group col-md-6">
+            <label for="type">Type</label>
+            <select class="form-control" id="type" name="type" required>
+              <option value="">Select type</option>
+              <option value="MOVIE">Movie</option>
+              <option value="SHOW">Show</option>
+            </select>
+          </div>
+  
+          <div class="form-group col-md-6">
+            <label for="ageCertification">Age Certification</label>
+            <select class="form-control" id="ageCertification" name="ageCertification" required>
+              <option value="">Select age certification</option>
+              <option value="G">G</option>
+              <option value="PG">PG</option>
+              <option value="PG-13">PG-13</option>
+              <option value="R">R</option>
+              <option value="NC-17">NC-17</option>
+              <option value="Not Rated">Not Rated</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="releaseYear">Release Year</label>
+            <input type="number" class="form-control" id="releaseYear" name="releaseYear" placeholder="Enter release year"
+              required>
+          </div>
+    
+          <div class="form-group col-md-4">
+            <label for="runtime">Runtime</label>
+            <input type="number" class="form-control" id="runtime" name="runtime" placeholder="Enter runtime" required>
+          </div>
+    
+          <!-- Seasons -->
+          <div class="form-group col-md-4">
+            <label for="seasons">Seasons</label>
+            <input type="number" class="form-control" id="seasons" name="seasons" placeholder="Enter seasons">
+          </div>
+    
+          <!-- <div class="form-group col-md-12">
+            <label>Genres</label>
+            <div class="row">
+              <div class="form-check col">
+                <input class="form-check-input" type="checkbox" id="action" name="genres[]" value="action">
+                <label class="form-check-label" for="action">Action</label>
+              </div>
+              <div class="form-check col">
+                <input class="form-check-input" type="checkbox" id="adventure" name="genres[]" value="adventure">
+                <label class="form-check-label" for="adventure">Adventure</label>
+              </div>
+              <div class="form-check col">
+                <input class="form-check-input" type="checkbox" id="comedy" name="genres[]" value="comedy">
+                <label class="form-check-label" for="comedy">Comedy</label>
+              </div>
+              <div class="form-check col">
+                <input class="form-check-input" type="checkbox" id="drama" name="genres[]" value="drama">
+                <label class="form-check-label" for="drama">Drama</label>
+              </div>
+              <div class="form-check col">
+                <input class="form-check-input" type="checkbox" id="fantasy" name="genres[]" value="fantasy">
+                <label class="form-check-label" for="fantasy">Fantasy</label>
+              </div>
+              <div class="form-check col">
+                <input class="form-check-input" type="checkbox" id="horror" name="genres[]" value="horror">
+                <label class="form-check-label" for="horror">Horror</label>
+              </div>
+            </div>
+          </div> -->
+    
+          <div class="form-group col-md-4">
+            <label for="productionCountry">Production Country</label>
+            <input type="text" class="form-control" id="productionCountry" name="productionCountry"
+              placeholder="Enter Country" required>
+          </div>
+    
+          <div class="form-group col-md-4">
+            <label for="imdbID">IMDB ID</label>
+            <input type="text" class="form-control" id="imdbID" name="imdbID" placeholder="Enter IMDB ID" required>
+          </div>
+    
+          <div class="form-group col-md-4">
+            <label for="imdbScore">IMDB Score</label>
+            <input type="number" class="form-control" id="imdbScore" name="imdbScore" placeholder="Enter IMDB score"
+              required>
+          </div>
+    
+          <div class="form-group col-md-4">
+            <label for="imdbVotes">IMDB Votes</label>
+            <input type="number" class="form-control" id="imdbVotes" name="imdbVotes" placeholder="Enter IMDB votes"
+              required>
+          </div>
+    
+          <div class="form-group col-md-4">
+            <label for="tmdbPopularity">TMDB Popularity</label>
+            <input type="number" class="form-control" id="tmdbPopularity" name="tmdbPopularity"
+              placeholder="Enter TMDB popularity" required>
+          </div>
+    
+          <div class="form-group col-md-4">
+            <label for="tmdbScore">TMDB Score</label>
+            <input type="number" class="form-control" id="tmdbScore" name="tmdbScore" placeholder="Enter TMDB score"
+              required>
+          </div>
+    
+          <div class="form-group col-md-4">
+            <button type="submit col-md-2" class="btn btn-primary">Submit</button>
+          </div>
+    
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+    integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
