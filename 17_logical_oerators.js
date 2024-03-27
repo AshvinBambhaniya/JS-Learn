@@ -20,13 +20,13 @@ b = 0 || null || "" || undefined
 console.log(b);
 console.log("-----");
 
-// ||  will return the right side operand when the left is null or undefined
+// ??  will return the right side operand when the left is null or undefined
 
 let c;
 
 c = 10 ?? 20 // 10
-c = null ?? 45 // null 
-c = undefined ?? 45 //undefine
+c = null ?? 45 // 45
+c = undefined ?? 45 //45
 c = "" ?? 45 // ""
 c = 0 ?? 45
 

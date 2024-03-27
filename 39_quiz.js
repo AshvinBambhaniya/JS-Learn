@@ -133,14 +133,33 @@
 // console.log(typeof y);
 // console.log(y);
 
-let a = 0
-let b = 15
-console.log(a);
-if (b = a) {
-    console.log("hello");
+// let a = 0
+// let b = 15
+// console.log(a);
+// if (b = a) {
+//     console.log("hello");
+// }
+
+// let d = "10"
+// d = parseInt(a)
+// let c = 10 + 10 + d
+// console.log(c);
+
+var foo = 10
+
+function x() {
+    var foo = 20
+    var bar = 45
+    baz = 64
 }
 
-let d = "10"
-d = parseInt(a)
-let c = 10 + 10 + d
-console.log(c);
+function y() {
+    var foo = 20
+    var bar = 45
+    var baz = 64
+}
+
+x()
+console.log(foo);// 10 10
+console.log(baz);// 64 64
+console.log(bar);// 45 45

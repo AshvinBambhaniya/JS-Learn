@@ -7,6 +7,9 @@ function makeUser() {
 
 let user = makeUser();
 
+// console.log(user.name);
+// console.log(user);
+// console.log(user.ref);
 console.log(user.ref.name); //undefined
 
 function makeUserNew() {

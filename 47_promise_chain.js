@@ -11,11 +11,14 @@ createOrder(cart)
     })
     .then(function (data) {
         console.log(data);
+        return data
     })
     .catch(function (err) {
         console.log(err.message);
+        return err.message
     })
-    .then(function () {
+    .then(function (data) {
+        console.log(data);
         console.log("no matter what happens this will execute");
     })
 
